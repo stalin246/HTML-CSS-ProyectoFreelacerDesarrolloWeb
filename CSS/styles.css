@@ -1,0 +1,341 @@
+
+/* SELECTOR DE VARIABLES GLOBALES*/
+:root {
+/* Paleta de colores */
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: cornflowerblue;
+/* Tipografia y tamaño de texto */
+    /* --fueteprincipal: 3.8rem; */
+
+}
+
+/*-------------------------------------------- */
+/* Esta seccion se debe considerar mucho ya qeu nos ayuda en el CSS Box Model*/
+
+html {
+    font-size: 62.5%;  /* Configura el tamaño de fuente base para que 1rem = 10px */
+    box-sizing: border-box; /* El ancho y alto de los elementos incluirán el padding y el border */
+    scroll-snap-type: y mandatory;
+
+}
+*, *:before, *:after {
+    box-sizing: inherit; /* Hereda box-sizing del elemento padre */
+}
+
+/* -------------------------------------------*/
+
+/*Configuración Global del Modelo de Caja y Tamaño de Fuente*/
+body {
+    font-size: 16px; /* Establece el tamaño de fuente predeterminado del contenido */
+    font-family: 'Krub', sans-serif; /* Define la familia de fuentes para el cuerpo */
+
+    /* De esta forma podemos degradar la imagen "top" empieza desde abajo y "0" desde que seccion */
+    /* Se puede usar aparte de "tpp" otras funciones como "right" */
+    background-image: linear-gradient(to top, #bdaaaa 0%, var(--blanco) 100%);
+}
+
+.contenedor {
+    max-width: 120rem; /* Establece un ancho máximo de 120 rem para el contenedor. Esto significa que el contenedor puede crecer hasta 120 rem pero no más, asegurando que no se extienda demasiado en pantallas grandes. */
+    margin: 0rem auto; /* Centra el contenedor horizontalmente en la página. El valor 'auto' en los márgenes izquierdo y derecho hace que el navegador ajuste estos márgenes de forma equitativa para centrar el elemento. El '0rem' en los márgenes superior e inferior significa que no habrá espacio adicional arriba o abajo del contenedor. */
+}
+
+
+.boton {
+    background-color: var(--primario);  /* Utiliza una variable CSS para el color de fondo */
+    color: var(--blanco);               /* Utiliza una variable CSS para el color del texto */
+    padding: 1rem 3rem;                 /* Establece el relleno interno: 1rem arriba/abajo, 3rem izquierda/derecha */
+    margin-top: 4rem;                   /* Espacio de margen en la parte superior */
+    text-decoration: none;              /* Elimina cualquier decoración de texto, útil para enlaces */
+    text-transform: uppercase;          /* Transforma todo el texto a mayúsculas */
+    font-weight: bold;                  /* Establece el peso de la fuente a negrita */
+    border-radius: 0.5rem;              /* Redondea las esquinas del botón */
+    width: 90%;                         /* Establece el ancho del botón al 90% del contenedor padre */
+    transition: background-color 0.3s;  /* Transición suave para el cambio de color de fondo */
+    text-align: center;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        width: auto; /* Restablece el ancho a 'auto', permitiendo que el botón se ajuste al contenido */
+    }
+}
+
+.boton:hover {
+    cursor: pointer;
+}
+
+ /* Box shadows en CSS */
+ .sombra {
+    box-shadow: 11px 7px 0px 0px rgba(0,0,0,0.26);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/* Estilos para Encabezados y Títulos */
+
+h1, h2, h3 {
+    text-align: center; /* Centra el texto de todos los encabezados */
+}
+h1 {
+    color: var(--primario); /* Color primario para h1 */
+    font-size: 3.8rem; /* Tamaño grande para h1 */
+    font-weight: 400; /* Peso de la fuente para h1 */
+}
+h2 {
+    font-size: 2.8rem; /* Tamaño para h2 */
+}
+h3 {
+    font-size: 1.8rem; /* Tamaño para h3 */
+}
+.titulo span {
+    font-size: 2rem; /* Tamaño específico para span dentro de .titulo */
+}
+
+/* Utilidades */
+
+.w-100 { width: 100%; } /* Establece el ancho al 100% del contenedor */
+
+@media (min-width: 768px) { 
+    .w-100 { width: auto; } /* Cambia el ancho a 'auto' en pantallas >= 768px */
+}
+
+.flex { display: flex; } /* Activa flexbox para un layout flexible */
+
+.alinear-derecha { justify-content: flex-end; } /* Alinea elementos a la derecha en un contenedor flex */
+
+.nav-bg {
+    background-color: var(--primario);
+}
+.navegacion-principal {
+    display: flex; 
+    flex-direction: column; /* Los elementos de navegación se apilan verticalmente */
+    
+}
+
+@media (min-width: 768px) {
+    .navegacion-principal {
+        flex-direction: row; /* Cambia a layout horizontal en pantallas más anchas */
+        justify-content: space-around; /* Distribuye elementos uniformemente */
+
+        
+    }
+}
+
+.navegacion-principal a {
+    display: block; /* Hace que los enlaces se comporten como bloques */
+    text-align: center; /* Centra el texto del enlace */
+    color: var(--blanco); /* Texto blanco para mejor contraste */
+    text-decoration: none; /* No subrayado */
+    font-size: 2rem; /* Tamaño de texto grande para enlaces */
+    font-weight: 700; /* Negrita */
+    padding: 1rem; /* Espacio alrededor del texto */
+}
+
+/* Hover para cambiar el color del conbtenido seleccionado */
+.navegacion-principal a:hover{
+  background-color: orange;
+  color: var(--oscuro);
+
+}
+.perfil a:hover{
+    background-color: orange;
+    color: var(--oscuro);
+}
+
+
+.perfil {
+    /* para usar inagenes directo en CSS */
+    background-image: url(../img/hero.jpg);
+    background-size: cover; /* o contain, 100%, etc. */
+    /* para no repetir la imagen */
+    background-repeat: no-repeat;
+    height: 450px;
+    /* padding: 20px; */
+    position: relative;
+
+    margin-bottom: 2rem;
+}
+
+.perfil-contenido {
+    position: absolute; /* Posiciona sobre el contenedor de perfil */
+    background-color: rgb(0 0 0 / 70%); /* Semi transparente para sobreponer sobre la imagen */
+    width: 100%; /* Cubre todo el ancho del contenedor padre */
+    height: 100%; /* Cubre toda la altura del contenedor padre */
+    /* CON ESTE CODIGO PODREMOS ALINEAR VERTICALMENTE Y HORIZONTALMENTE */
+    display: flex;  
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Selector de grupo que afecta a los elementos <h2> y <p> dentro del contenedor con clase .perfil-contenido */
+.perfil-contenido h2,
+.perfil-contenido p {
+    color: var(--blanco); /* Establece el color de texto a una variable CSS, --blanco, que debe estar definida en algún lugar del CSS o en el estilo en línea del HTML. Esto asegura que el color del texto de estos elementos sea blanco o el valor asignado a la variable --blanco. */
+}
+
+/* Estilos para el contenedor con la clase .ubicacion */
+.ubicacion {
+    display: flex; /* Aplica flexbox al contenedor, lo que permite un diseño flexible de sus elementos hijos. */
+    align-items: flex-end; /* Alinea los elementos hijos verticalmente al final (parte inferior) del contenedor .ubicacion. Esto es útil para alinear elementos dentro de un contenedor cuando se utiliza flexbox. */
+}
+
+.servicios,
+.navegacion-principal,
+.formulario {
+    scroll-snap-align: center; /* Alinea los elementos al centro del viewport cuando se hace scroll snapping */
+    scroll-snap-stop: always; /* Asegura que el scrolling se detenga en estos elementos para garantizar que se centren en la pantalla */
+}
+/*  Para el diseño responsive usando Grid*/
+@media (min-width: 768px) {
+    
+    .servicios {
+        display: grid;
+        /* grid-template-columns: 300px 300px;
+        grid-template-rows: 200px 800px; */
+        /* Se crean 3 columnas */
+        /* grid-template-columns: 33.3% 33.3% 33.3% ; */
+        /* !fr =0.33 */
+        /* Aqui se repiten 3 veces las columnas con el 33% tamaño */
+        grid-template-columns: repeat(3, 1fr);
+
+
+        /*De esta forma podemos añadir margenes a las columnas en Grid  */
+        column-gap: 1rem;
+    }
+       
+}
+
+/* Contenido Padre */
+.servicio {
+    /*  Hcaer referencia a display flex para alinear elementos */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.servicio h3{
+    color: var(--primario);
+
+    font-weight: normal;
+
+}
+.servicio p {
+
+    /* Interlineado */
+    line-height: 2;
+    text-align: center;
+}
+
+.servicios .iconos {
+    /* altura */
+    height: 15rem;
+    /* Ancho */
+    width: 15rem;
+    background-color: var(--oscuro);
+    /* Con border radius al 50% se hace un circulo la forma */
+    border-radius: 50%;
+
+    /* por default: flex-direction: row; */
+
+    /* Se posicionaran los iconos horizintal y verticalmente con Flexbox*/
+    display: flex;
+    /* Centra el contenido "center"*/
+    justify-content: space-evenly;
+    /* De esta forma se alinea verticalmente  */
+    align-items: center;
+
+
+}
+/* Contacto */
+
+.formulario legend {
+
+  
+    font-size: 1.8rm;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--blanco);
+    text-align: center;
+
+}
+
+.formulario {
+    background-color: var(--primario);
+
+    width: min(60rem, 100%); /** Utiliza el valor mas pequeño del 100% de espacio que existe en el contenido**/
+
+    margin: 0 auto; /** Podemos usarlo cuando su padre no tiene un display flex y es de tipo block**/
+    padding: 2rem;
+    border-radius: 1rem;
+ 
+
+
+}
+.formulario fieldset{
+    /* Para que no tenga bordes el formulario */
+    border: none;
+}
+
+
+
+.color {
+    
+    background-color: gray;
+}
+
+
+.cont-principal section {
+
+    text-align: center;
+    
+    
+}
+
+
+
+
+
+@media (min-width: 768px) { /* Establece estilos solo para pantallas con un ancho mínimo de 768px */
+    .contenedor-campos {
+        display: grid; /* Utiliza CSS Grid para organizar el contenido */
+        grid-template-columns: repeat(2, 1fr); /* Divide el contenedor en 2 columnas iguales */
+        /* grid-template-columns: 50% 50%; Alternativa para dividir el contenedor en dos columnas */
+        grid-template-rows: auto auto 20rem; /* Define las filas, dos de altura automática y una de 20rem */
+        column-gap: 1rem; /* Establece un espacio de 1rem entre las columnas */
+    }
+    .campo:nth-child(3),
+    .campo:nth-child(4) {
+        grid-column: 1/3; /* Hace que el tercer y cuarto campo abarquen ambas columnas significa que la fila toma el ancho de las columnas */
+    }
+}
+
+
+.campo { margin-bottom: 1rem; } /* Establece un margen inferior para cada campo para separación */
+
+.campo label { 
+    display: block; /* Hace que la etiqueta ocupe todo el ancho del contenedor, facilitando la alineación de los elementos internos */
+    color: var(--blanco); /* Establece el color del texto usando una variable CSS para la coherencia */
+    font-weight: bold; /* Texto en negrita para mejor legibilidad */
+    margin-bottom: 1rem; /* Margen inferior para separar la etiqueta del input */
+}
+
+.input-text {
+    width: 100%; /* Ajusta el input para que ocupe el 100% del ancho de su contenedor */
+    border: none; /* Remueve el borde para un diseño más limpio */
+    padding: 1.5rem; /* Añade padding para hacer el input más accesible */
+    border-radius: 0.5rem; /* Suaviza las esquinas del input para un diseño moderno */
+}
+.campo textarea {
+    height: 20rem;
+  }
+
+  footer {
+    text-align: center; /* Centra el texto dentro del elemento footer */
+  }
